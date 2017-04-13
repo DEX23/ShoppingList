@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Shopping List</string>
+    <string name="activity_detail_action_add">Add</string>
+    <string name="activity_detail_action_remove">Remove</string>
+    <string name="activity_main_toolbar_title">Shopping Lists</string>
+    <string name="fragment_detal_action_add">Add</string>
+    <string name="fragment_detail_action_remove">Remove</string>
 </resources>
