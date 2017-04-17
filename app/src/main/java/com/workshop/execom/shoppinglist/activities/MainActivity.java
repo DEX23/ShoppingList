@@ -11,6 +11,7 @@ import android.widget.EditText;
 
 import com.workshop.execom.shoppinglist.R;
 import com.workshop.execom.shoppinglist.model.Articles;
+import com.workshop.execom.shoppinglist.model.ShoppingLists;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.add:
 
                 final Dialog dialog = new Dialog(MainActivity.this);
-                dialog.setTitle("Osnovni podaci o shoping listi");
+                dialog.setTitle("Unesi ime nove shoping liste");
                 dialog.setContentView(R.layout.dialog_shopping_list);
 
                 Button ok = (Button)dialog.findViewById(R.id.ok);
@@ -42,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
                     EditText ime = (EditText)dialog.findViewById(R.id.et_ime);
 //                    EditText kolicina = (EditText)dialog.findViewById(R.id.et_kolicina);
 
-                    Articles a = new Articles();
-                    a.setImeArtikla(ime.getText().toString());
-//                    a.setKolicinaArtikla(kolicina.getText().toString());
+                    ShoppingLists sl = new ShoppingLists();
+                    sl.setSlName(ime.getText().toString());
+//                    a.setKolicina(kolicina.getText().toString());
 
                     dialog.dismiss();
                 }

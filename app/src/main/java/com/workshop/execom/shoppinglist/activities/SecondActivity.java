@@ -43,8 +43,8 @@ public class SecondActivity extends AppCompatActivity {
                         EditText kolicina = (EditText)dialog.findViewById(R.id.et_kolicina);
 
                         Articles a = new Articles();
-                        a.setImeArtikla(ime.getText().toString());
-                        a.setKolicinaArtikla(kolicina.getText().toString());
+                        a.setaName(ime.getText().toString());
+                        a.setaKolicina(kolicina.getText().toString());
 
                         dialog.dismiss();
                     }
