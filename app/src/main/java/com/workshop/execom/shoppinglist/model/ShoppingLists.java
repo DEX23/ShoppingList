@@ -16,18 +16,39 @@ public class ShoppingLists {
     public static final String TABLE_NAME_USERS = "shopping lists";
     public static final String FIELD_NAME_ID = "id";
     public static final String TABLE_ARTICLE_NAME = "name";
-    public static final String TABLE_ARTICLE_ARTICLES = "articles";
+    public static final String TABLE_FIELD_ITEM = "item";
+    public static final String TABLE_FIELD_COMPLETE = "completed";
+    public static final String TABLE_FIELD_PROTECT = "protected";
 
     @DatabaseField(columnName = FIELD_NAME_ID, generatedId = true)
     private int slId;
-
     @DatabaseField(columnName = TABLE_ARTICLE_NAME)
     private String slName;
+    @DatabaseField(columnName = TABLE_FIELD_COMPLETE)
+    private String complete;
+    @DatabaseField(columnName = TABLE_FIELD_PROTECT)
+    private String protect;
 
-    @ForeignCollectionField(columnName = ShoppingLists.TABLE_ARTICLE_ARTICLES, eager = true)
+    @ForeignCollectionField(columnName = ShoppingLists.TABLE_FIELD_ITEM, eager = true)
     private ForeignCollection<Articles> articles;
 
     public ShoppingLists() {
+    }
+
+    public String getComplete() {
+        return complete;
+    }
+
+    public String getProtect() {
+        return protect;
+    }
+
+    public void setComplete(String complete) {
+        this.complete = complete;
+    }
+
+    public void setProtect(String protect) {
+        this.protect = protect;
     }
 
     public int getSlId() {
