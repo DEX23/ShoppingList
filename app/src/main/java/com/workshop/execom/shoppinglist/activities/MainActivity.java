@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText listName = (EditText) findViewById(R.id.et_nameOfList);
                 ShoppingLists s = new ShoppingLists();
+                s.setSlName(listName.getText().toString());
                 if (s.getSlName().equals("")) {
                     Toast.makeText(MainActivity.this, "Shopping list name", Toast.LENGTH_SHORT).show();
                     return;
