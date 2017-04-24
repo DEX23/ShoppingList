@@ -7,6 +7,7 @@
     <string name="fragment_detail_action_remove">Remove</string>
     <string name="NotCompleted"><font fgcolor='#F44336'>Not completed</font></string>
     <string name="list_name">List name: </string>
+    <string name="name_of_list">Name of list</string>
     <string name="del">Del</string>
     <string name="prtctd">Prtctd</string>
     <string name="completed">Completed</string>

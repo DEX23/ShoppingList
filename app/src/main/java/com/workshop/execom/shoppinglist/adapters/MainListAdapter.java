@@ -65,4 +65,7 @@ public class MainListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void clear () {
+        shoppingLists.clear();
+    }
 }
