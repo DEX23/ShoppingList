@@ -12,4 +12,6 @@
     <string name="completed">Completed</string>
     <string name="enter_article_name">Enter article name</string>
     <string name="enter_article_amount">Enter article amount</string>
+    <string name="purchased"><font fgcolor="#c32fb925">Purchased</font></string>
+    <string name="not_purchased"><font fgcolor="#f43643">Not Purchased</font></string>
 </resources>
