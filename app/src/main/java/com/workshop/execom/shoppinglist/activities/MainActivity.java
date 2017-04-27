@@ -2,6 +2,7 @@ package com.workshop.execom.shoppinglist.activities;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -115,6 +116,19 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                AlertDialog.Builder about = new AlertDialog.Builder(this);
+                about.setTitle("Autor aplikacije");
+                about.setMessage("Vlada Becelic" + "\nKontakt telefon: 062/310191" + "\n" + "Email: vladabecelic@hotmail.com");
+                about.show();
+                about.setCancelable(true);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onResume() {

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -39,6 +40,7 @@ public class SecondActivity extends AppCompatActivity {
     private ListView listView;
     private Toolbar toolbar;
     private Articles aAdd = new Articles();
+    private List <Articles> list;
     private Articles articles;
     private ArticleListAdapter articleListAdapter;
     public static String DETAIL_KEY ="DETAIL_KEY";
@@ -56,13 +58,22 @@ public class SecondActivity extends AppCompatActivity {
             final TextView listName = (TextView) findViewById(R.id.tv_nameListInActivittSecond);
             listName.setText(shoppingLists.getSlName());
 
-//            list = getDatabaseHelper().getArticlesDao().queryBuilder().
-//                    where().eq(Articles.TABLE_NAME_USERS, shoppingLists.getSlId()).query();
-//
-//            listView = (ListView) findViewById(R.id.lv_listItem);
-//            final ArticleListAdapter adapter = new ArticleListAdapter(SecondActivity.this, (ArrayList<Articles>) list);
+            list = getDatabaseHelper().getArticlesDao().queryBuilder().
+                    where().eq(Articles.FIELD_NAME_USER, shoppingLists.getSlId()).query();
+
+            listView = (ListView) findViewById(R.id.lv_listItem);
+            final ArticleListAdapter adapter = new ArticleListAdapter(SecondActivity.this, (ArrayList<Articles>) list);
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Articles i = (Articles) listView.getItemAtPosition(position);
+                    Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+                    intent.putExtra(DETAIL_KEY, i.getaId());
+                    startActivity(intent);
+                }
+            });
         }catch (java.sql.SQLException e) {
-            e.printStackTrace();g
+            e.printStackTrace();
         }
     }
 
@@ -77,18 +88,14 @@ public class SecondActivity extends AppCompatActivity {
             case R.id.add:
 
                 final Dialog dialog = new Dialog(SecondActivity.this);
-                dialog.setTitle("Osnovni podaci o artiklu");
                 dialog.setContentView(R.layout.dialog_article);
-
                 Button ok = (Button)dialog.findViewById(R.id.ok);
-
                 ok.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
                         EditText ime = (EditText)dialog.findViewById(R.id.et_ime);
                         EditText kolicina = (EditText)dialog.findViewById(R.id.et_kolicina);
 
-                        Articles a = new Articles();
                         aAdd.setaName(ime.getText().toString());
                         aAdd.setaKolicina(kolicina.getText().toString());
                         if (aAdd.getaName().equals("") && aAdd.getaKolicina().equals("")) {

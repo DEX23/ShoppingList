@@ -51,7 +51,7 @@ public class ShoppingLists {
         this.protect = protect;
     }
 
-    public static int getSlId() {
+    public  int getSlId() {
         return slId;
     }
 
